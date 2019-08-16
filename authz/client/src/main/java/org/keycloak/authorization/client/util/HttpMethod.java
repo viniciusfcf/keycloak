@@ -134,7 +134,7 @@ public class HttpMethod<R> {
             List<String> values = params.get(name);
 
             if (values == null || !values.isEmpty()) {
-                values = new ArrayList<>();
+                values = new ArrayList<String>();
                 params.put(name, values);
             }
 
@@ -148,7 +148,7 @@ public class HttpMethod<R> {
             List<String> values = params.get(name);
 
             if (values == null) {
-                values = new ArrayList<>();
+                values = new ArrayList<String>();
                 params.put(name, values);
             }
 
@@ -168,7 +168,7 @@ public class HttpMethod<R> {
             @Override
             protected void preExecute(RequestBuilder builder) {
                 if (params != null) {
-                    List<NameValuePair> formparams = new ArrayList<>();
+                    List<NameValuePair> formparams = new ArrayList<NameValuePair>();
 
                     for (Map.Entry<String, List<String>> param : params.entrySet()) {
                         for (String value : param.getValue()) {

@@ -43,7 +43,7 @@ public class UmaPermissionRepresentation extends AbstractPolicyRepresentation {
 
     public void addRole(String... role) {
         if (roles == null) {
-            roles = new HashSet<>();
+            roles = new HashSet<String>();
         }
 
         roles.addAll(Arrays.asList(role));
@@ -69,7 +69,7 @@ public class UmaPermissionRepresentation extends AbstractPolicyRepresentation {
 
     public void addGroup(String... group) {
         if (groups == null) {
-            groups = new HashSet<>();
+            groups = new HashSet<String>();
         }
 
         groups.addAll(Arrays.asList(group));
@@ -91,7 +91,7 @@ public class UmaPermissionRepresentation extends AbstractPolicyRepresentation {
 
     public void addClient(String... client) {
         if (clients == null) {
-            clients = new HashSet<>();
+            clients = new HashSet<String>();
         }
 
         clients.addAll(Arrays.asList(client));
@@ -113,7 +113,7 @@ public class UmaPermissionRepresentation extends AbstractPolicyRepresentation {
 
     public void addUser(String... user) {
         if (this.users == null) {
-            this.users = new HashSet<>();
+            this.users = new HashSet<String>();
         }
         this.users.addAll(Arrays.asList(user));
     }

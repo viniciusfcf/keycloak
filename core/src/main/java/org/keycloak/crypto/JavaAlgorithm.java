@@ -37,70 +37,68 @@ public class JavaAlgorithm {
     public static final String SHA512 = "SHA-512";
 
     public static String getJavaAlgorithm(String algorithm) {
-        switch (algorithm) {
-            case Algorithm.RS256:
-                return RS256;
-            case Algorithm.RS384:
-                return RS384;
-            case Algorithm.RS512:
-                return RS512;
-            case Algorithm.HS256:
-                return HS256;
-            case Algorithm.HS384:
-                return HS384;
-            case Algorithm.HS512:
-                return HS512;
-            case Algorithm.ES256:
-                return ES256;
-            case Algorithm.ES384:
-                return ES384;
-            case Algorithm.ES512:
-                return ES512;
-            case Algorithm.PS256:
-                return PS256;
-            case Algorithm.PS384:
-                return PS384;
-            case Algorithm.PS512:
-                return PS512;
-            case Algorithm.AES:
-                return AES;
-            default:
-                throw new IllegalArgumentException("Unknown algorithm " + algorithm);
-        }
+        if (Algorithm.RS256.equals(algorithm)) {
+			return RS256;
+		} else if (Algorithm.RS384.equals(algorithm)) {
+			return RS384;
+		} else if (Algorithm.RS512.equals(algorithm)) {
+			return RS512;
+		} else if (Algorithm.HS256.equals(algorithm)) {
+			return HS256;
+		} else if (Algorithm.HS384.equals(algorithm)) {
+			return HS384;
+		} else if (Algorithm.HS512.equals(algorithm)) {
+			return HS512;
+		} else if (Algorithm.ES256.equals(algorithm)) {
+			return ES256;
+		} else if (Algorithm.ES384.equals(algorithm)) {
+			return ES384;
+		} else if (Algorithm.ES512.equals(algorithm)) {
+			return ES512;
+		} else if (Algorithm.PS256.equals(algorithm)) {
+			return PS256;
+		} else if (Algorithm.PS384.equals(algorithm)) {
+			return PS384;
+		} else if (Algorithm.PS512.equals(algorithm)) {
+			return PS512;
+		} else if (Algorithm.AES.equals(algorithm)) {
+			return AES;
+		} else {
+			throw new IllegalArgumentException("Unknown algorithm " + algorithm);
+		}
     }
 
 
     public static String getJavaAlgorithmForHash(String algorithm) {
-        switch (algorithm) {
-            case Algorithm.RS256:
-                return SHA256;
-            case Algorithm.RS384:
-                return SHA384;
-            case Algorithm.RS512:
-                return SHA512;
-            case Algorithm.HS256:
-                return SHA256;
-            case Algorithm.HS384:
-                return SHA384;
-            case Algorithm.HS512:
-                return SHA512;
-            case Algorithm.ES256:
-                return SHA256;
-            case Algorithm.ES384:
-                return SHA384;
-            case Algorithm.ES512:
-                return SHA512;
-            case Algorithm.PS256:
-                return SHA256;
-            case Algorithm.PS384:
-                return SHA384;
-            case Algorithm.PS512:
-                return SHA512;
-            case Algorithm.AES:
-                return AES;
-            default:
-                throw new IllegalArgumentException("Unknown algorithm " + algorithm);
-        }
+        if (Algorithm.RS256.equals(algorithm)) {
+			return SHA256;
+		} else if (Algorithm.RS384.equals(algorithm)) {
+			return SHA384;
+		} else if (Algorithm.RS512.equals(algorithm)) {
+			return SHA512;
+		} else if (Algorithm.HS256.equals(algorithm)) {
+			return SHA256;
+		} else if (Algorithm.HS384.equals(algorithm)) {
+			return SHA384;
+		} else if (Algorithm.HS512.equals(algorithm)) {
+			return SHA512;
+		} else if (Algorithm.ES256.equals(algorithm)) {
+			return SHA256;
+		} else if (Algorithm.ES384.equals(algorithm)) {
+			return SHA384;
+		} else if (Algorithm.ES512.equals(algorithm)) {
+			return SHA512;
+		} else if (Algorithm.PS256.equals(algorithm)) {
+			return SHA256;
+		} else if (Algorithm.PS384.equals(algorithm)) {
+			return SHA384;
+		} else if (Algorithm.PS512.equals(algorithm)) {
+			return SHA512;
+		} else if (Algorithm.AES.equals(algorithm)) {
+			return AES;
+		} else {
+			throw new IllegalArgumentException("Unknown algorithm " + algorithm);
+		}
     }
 
 }

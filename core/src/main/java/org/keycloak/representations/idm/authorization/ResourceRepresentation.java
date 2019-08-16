@@ -112,7 +112,7 @@ public class ResourceRepresentation {
 
     public ResourceRepresentation(String name, String... scopes) {
         this.name = name;
-        this.scopes = new HashSet<>();
+        this.scopes = new HashSet<ScopeRepresentation>();
         for (String s : scopes) {
             ScopeRepresentation rep = new ScopeRepresentation(s);
             this.scopes.add(rep);
@@ -191,7 +191,7 @@ public class ResourceRepresentation {
 
     public void setUris(Set<String> uris) {
         if (uris != null) {
-            Set<String> resultSet = new HashSet<>();
+            Set<String> resultSet = new HashSet<String>();
             for (String uri : uris) {
                 if (uri != null && !"".equalsIgnoreCase(uri.trim())) {
                     resultSet.add(uri);
@@ -259,7 +259,7 @@ public class ResourceRepresentation {
 
     public void addScope(String... scopeNames) {
         if (scopes == null) {
-            scopes = new HashSet<>();
+            scopes = new HashSet<ScopeRepresentation>();
         }
         for (String scopeName : scopeNames) {
             scopes.add(new ScopeRepresentation(scopeName));

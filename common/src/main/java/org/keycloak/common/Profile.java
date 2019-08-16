@@ -80,9 +80,9 @@ public class Profile {
 
     private final ProfileValue profile;
 
-    private final Set<Feature> disabledFeatures = new HashSet<>();
-    private final Set<Feature> previewFeatures = new HashSet<>();
-    private final Set<Feature> experimentalFeatures = new HashSet<>();
+    private final Set<Feature> disabledFeatures = new HashSet<Feature>();
+    private final Set<Feature> previewFeatures = new HashSet<Feature>();
+    private final Set<Feature> experimentalFeatures = new HashSet<Feature>();
 
     private Profile() {
         Config config = new Config();

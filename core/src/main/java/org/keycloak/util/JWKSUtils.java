@@ -33,7 +33,7 @@ import java.util.Map;
 public class JWKSUtils {
 
     public static Map<String, PublicKey> getKeysForUse(JSONWebKeySet keySet, JWK.Use requestedUse) {
-        Map<String, PublicKey> result = new HashMap<>();
+        Map<String, PublicKey> result = new HashMap<String, PublicKey>();
 
         for (JWK jwk : keySet.getKeys()) {
             JWKParser parser = JWKParser.create(jwk);
@@ -46,7 +46,7 @@ public class JWKSUtils {
     }
 
     public static Map<String, KeyWrapper> getKeyWrappersForUse(JSONWebKeySet keySet, JWK.Use requestedUse) {
-        Map<String, KeyWrapper> result = new HashMap<>();
+        Map<String, KeyWrapper> result = new HashMap<String, KeyWrapper>();
         for (JWK jwk : keySet.getKeys()) {
             JWKParser parser = JWKParser.create(jwk);
             if (jwk.getPublicKeyUse().equals(requestedUse.asString()) && parser.isKeyTypeSupported(jwk.getKeyType())) {
@@ -63,14 +63,13 @@ public class JWKSUtils {
     }
 
     private static KeyUse getKeyUse(String keyUse) {
-        switch (keyUse) {
-            case "sig" : 
-                return KeyUse.SIG;
-            case "enc" : 
-                return KeyUse.ENC;
-            default :
-                return null;
-        }
+        if ("sig".equals(keyUse)) {
+			return KeyUse.SIG;
+		} else if ("enc".equals(keyUse)) {
+			return KeyUse.ENC;
+		} else {
+			return null;
+		}
     }
 
     public static JWK getKeyForUse(JSONWebKeySet keySet, JWK.Use requestedUse) {

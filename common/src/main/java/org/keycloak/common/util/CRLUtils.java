@@ -61,16 +61,28 @@ public final class CRLUtils {
             return Collections.emptyList();
         }
 
-        List<String> distributionPointUrls = new LinkedList<>();
+        List<String> distributionPointUrls = new LinkedList<String>();
         DEROctetString octetString;
-        try (ASN1InputStream crldpExtensionInputStream = new ASN1InputStream(new ByteArrayInputStream(data))) {
+        ASN1InputStream crldpExtensionInputStream = null;
+        try  {
+        	crldpExtensionInputStream = new ASN1InputStream(new ByteArrayInputStream(data));
             octetString = (DEROctetString)crldpExtensionInputStream.readObject();
+        } finally {
+        	if(crldpExtensionInputStream != null) {
+        		crldpExtensionInputStream.close();
+        	}
         }
         byte[] octets = octetString.getOctets();
 
         CRLDistPoint crlDP;
-        try (ASN1InputStream crldpInputStream = new ASN1InputStream(new ByteArrayInputStream(octets))) {
+        ASN1InputStream crldpInputStream = null;
+        try {
+        	crldpInputStream = new ASN1InputStream(new ByteArrayInputStream(octets));
             crlDP = CRLDistPoint.getInstance(crldpInputStream.readObject());
+        } finally {
+        	if(crldpInputStream != null) {
+        		crldpInputStream.close();
+        	}
         }
 
         for (DistributionPoint dp : crlDP.getDistributionPoints()) {

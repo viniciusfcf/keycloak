@@ -88,7 +88,7 @@ public class PermissionRequest {
 
     public void setClaim(String name, String... value) {
         if (claims == null) {
-            claims = new HashMap<>();
+            claims = new HashMap<String, List<String>>();
         }
 
         claims.put(name, Arrays.asList(value));
@@ -96,7 +96,7 @@ public class PermissionRequest {
 
     public void addScope(String... name) {
         if (scopes == null) {
-            scopes = new HashSet<>();
+            scopes = new HashSet<String>();
         }
 
         scopes.addAll(Arrays.asList(name));

@@ -59,7 +59,7 @@ public class JsonWebToken implements Serializable, Token {
     protected String type;
     @JsonProperty("azp")
     public String issuedFor;
-    protected Map<String, Object> otherClaims = new HashMap<>();
+    protected Map<String, Object> otherClaims = new HashMap<String, Object>();
 
     public String getId() {
         return id;

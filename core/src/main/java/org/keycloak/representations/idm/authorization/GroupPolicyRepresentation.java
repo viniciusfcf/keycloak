@@ -57,7 +57,7 @@ public class GroupPolicyRepresentation extends AbstractPolicyRepresentation {
 
     public void addGroup(String id, boolean extendChildren) {
         if (groups == null) {
-            groups = new HashSet<>();
+            groups = new HashSet<GroupDefinition>();
         }
         groups.add(new GroupDefinition(id, extendChildren));
     }
@@ -70,7 +70,7 @@ public class GroupPolicyRepresentation extends AbstractPolicyRepresentation {
 
     public void addGroupPath(String path, boolean extendChildren) {
         if (groups == null) {
-            groups = new HashSet<>();
+            groups = new HashSet<GroupDefinition>();
         }
         groups.add(new GroupDefinition(null, path, extendChildren));
     }

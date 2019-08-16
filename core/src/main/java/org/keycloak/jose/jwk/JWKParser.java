@@ -88,19 +88,15 @@ public class JWKParser {
         BigInteger y = new BigInteger(1, Base64Url.decode((String) jwk.getOtherClaims().get(ECPublicJWK.Y)));
 
         String name;
-        switch (crv) {
-            case "P-256" :
-                name = "secp256r1";
-                break;
-            case "P-384" :
-                name = "secp384r1";
-                break;
-            case "P-521" :
-                name = "secp521r1";
-                break;
-            default :
-                throw new RuntimeException("Unsupported curve");
-        }
+        if ("P-256".equals(crv)) {
+			name = "secp256r1";
+		} else if ("P-384".equals(crv)) {
+			name = "secp384r1";
+		} else if ("P-521".equals(crv)) {
+			name = "secp521r1";
+		} else {
+			throw new RuntimeException("Unsupported curve");
+		}
 
         try {
             ECNamedCurveParameterSpec spec = ECNamedCurveTable.getParameterSpec(name);

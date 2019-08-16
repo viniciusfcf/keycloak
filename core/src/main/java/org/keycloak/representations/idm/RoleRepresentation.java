@@ -152,7 +152,7 @@ public class RoleRepresentation {
 
     public RoleRepresentation singleAttribute(String name, String value) {
         if (attributes == null) {
-            attributes = new HashMap<>();
+            attributes = new HashMap<String, List<String>>();
         }
 
         attributes.put(name, Arrays.asList(value));

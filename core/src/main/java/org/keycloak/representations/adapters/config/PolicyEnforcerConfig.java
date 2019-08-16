@@ -40,7 +40,7 @@ public class PolicyEnforcerConfig {
 
     @JsonProperty("paths")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private List<PathConfig> paths = new ArrayList<>();
+    private List<PathConfig> paths = new ArrayList<PathConfig>();
 
     @JsonProperty("path-cache")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
@@ -131,7 +131,7 @@ public class PolicyEnforcerConfig {
     public static class PathConfig {
 
         public static Set<PathConfig> createPathConfigs(ResourceRepresentation resourceDescription) {
-            Set<PathConfig> pathConfigs = new HashSet<>();
+            Set<PathConfig> pathConfigs = new HashSet<PathConfig>();
 
             for (String uri : resourceDescription.getUris()) {
 
@@ -146,7 +146,7 @@ public class PolicyEnforcerConfig {
 
                 pathConfig.setPath(uri);
 
-                List<String> scopeNames = new ArrayList<>();
+                List<String> scopeNames = new ArrayList<String>();
 
                 for (ScopeRepresentation scope : resourceDescription.getScopes()) {
                     scopeNames.add(scope.getName());
@@ -164,8 +164,8 @@ public class PolicyEnforcerConfig {
         private String name;
         private String type;
         private String path;
-        private List<MethodConfig> methods = new ArrayList<>();
-        private List<String> scopes = new ArrayList<>();
+        private List<MethodConfig> methods = new ArrayList<MethodConfig>();
+        private List<String> scopes = new ArrayList<String>();
         private String id;
 
         @JsonProperty("enforcement-mode")
@@ -275,7 +275,7 @@ public class PolicyEnforcerConfig {
     public static class MethodConfig {
 
         private String method;
-        private List<String> scopes = new ArrayList<>();
+        private List<String> scopes = new ArrayList<String>();
 
         @JsonProperty("scopes-enforcement-mode")
         private ScopeEnforcementMode scopesEnforcementMode = ScopeEnforcementMode.ALL;

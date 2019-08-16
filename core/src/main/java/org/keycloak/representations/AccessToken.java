@@ -179,7 +179,7 @@ public class AccessToken extends IDToken {
 
     public Access addAccess(String service) {
         if (resourceAccess == null) {
-            resourceAccess = new HashMap<>();
+            resourceAccess = new HashMap<String, Access>();
         }
 
         Access access = resourceAccess.get(service);

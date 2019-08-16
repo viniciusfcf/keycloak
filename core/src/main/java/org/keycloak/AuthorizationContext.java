@@ -113,7 +113,7 @@ public class AuthorizationContext {
             return Collections.emptyList();
         }
 
-        return Collections.unmodifiableList(new ArrayList<>(authorization.getPermissions()));
+        return Collections.unmodifiableList(new ArrayList<Permission>(authorization.getPermissions()));
     }
 
     public boolean isGranted() {
